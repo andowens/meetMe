@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="../static/css/index.css">
+
+    <link rel="stylesheet" type="text/css"
+         href="//cdn.jsdelivr.net/bootstrap/latest/css/bootstrap.css"
+    />
+
+      <!-- Javascript:  JQuery from a content distribution network (CDN) -->
+    <script
+     src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js">
+    </script>
+
+    <title>MeetMe</title>
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="jumbotron">
+              <h1>meetMe!</h1>
+              <p>A simple meeting scheduling application</p>
+              <p>
+                  <a class="btn btn-primary btn-lg" id="create" role="button">Create Meeting</a>
+                  {% if session.meetings is defined %}
+                      <a class="btn btn-primary btn-lg" id="delete" role="button">Delete Meeting(s)</a>
+                  {% endif %}
+              </p>
+            </div>
+        </div>
+
+        {% if session.meetings is defined %}
+            {% for meet in session.meetings %}
+                <div class="row">
+                    <div class="col-md-10">
+                      <input type="checkbox" id="{{ meet.id }}"> <span class="custom-size"><a href="meeting/{{ meet.id }}">{{ meet.title }}</a></span>
+                    </div>
+                </div>
+             {% endfor %}
+        {% endif %}
+        </div>
+    </div>
+
+
+    <script>
+        // If user wants to create memo redirect to create page
+        document.getElementById('create').onclick = function() {
+            window.location.replace("create");
+        };
+
+        //we want to delete selected memos
+        document.getElementById('delete').onclick = function() {
+            var meetings = "";
+
+            //for all checked boxes
+            $('input[type=checkbox]').each(function() {
+                //if current box is checked add the memo id to a list of memo ids
+                if(this.checked){
+                    console.log(this.id);
+                    meetings = meetings + " " + this.id;
+                }
+
+                console.log(meetings);
+                //now pass list to server to be deleted and reload page
+                $.getJSON("/_delete", { meetings: meetings },
+                    function() {
+
+                        //reload the window
+                        window.location.replace("index");
+                    }
+            );//end getJson
+         })
+         };
+
+
+    </script>
+</body>
+</html>

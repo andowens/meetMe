@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="../static/css/index.css">
+
+    <link rel="stylesheet" type="text/css"
+         href="//cdn.jsdelivr.net/bootstrap/latest/css/bootstrap.css"
+    />
+
+
+    <link rel="stylesheet" type="text/css"
+         href="//cdn.jsdelivr.net/bootstrap/latest/css/bootstrap.css"/>
+
+    <title>View Meetings</title>
+</head>
+<body>
+    <div class="container">
+
+        <div class="page-header">
+            <h1 class="text-center">Meeting Info</h1>
+        </div>
+
+        <div class="row">
+            <div class="col-md-2">
+                <span class="custom-size">About: </span>
+            </div>
+            <div class="col-md-8">
+                <span class="custom-size">{{ session.title }}</span>
+            </div>
+        </div>
+        <div class="row top-buffer">
+            <div class="col-md-2">
+                <span class="custom-size">Where: </span>
+            </div>
+            <div class="col-md-8">
+                <span class="custom-size">{{ session.where }} </span>
+            </div>
+        </div>
+        <div class="row top-buffer">
+            <div class="col-md-2">
+                <span class="custom-size">Date: </span>
+            </div>
+            <div class="col-md-8">
+                <span class="custom-size">{{ session.begin_date }} - {{ session.end_date }} </span>
+            </div>
+        </div>
+        <div class="row top-buffer">
+            <div class="col-md-2">
+                <span class="custom-size">Time: </span>
+            </div>
+            <div class="col-md-8">
+                <span class="custom-size">{{ session.start_time }} to {{ session.end_time }} </span>
+            </div>
+        </div>
+        <div class="row top-buffer">
+            <div class="col-md-2">
+                <span class="custom-size">Free times: </span>
+            </div>
+            <div class="col-md-8">
+                {% for free in session.free %}
+                    <div class="row">
+                        <span class="custom-size">Start:{{ free.start }} End:{{free.end}}</span>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+        <div class="row top-buffer">
+            <div class="col-md-2">
+                <span class="custom-size">Attendees: </span>
+            </div>
+            <div class="col-md-8">
+                {% for person in session.attend %}
+                    <div class="row">
+                        <span class="custom-size">{{ person }} </span>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+        <div class="row top-buffer">
+            <div class="col-md-2">
+                <span class="custom-size">Invite url: </span>
+            </div>
+            <div class="col-md-8">
+                        <span class="custom-size">{{ session.url }} </span>
+            </div>
+        </div>
+
+
+    </div><!--end container" -->
+</body>
+</html>

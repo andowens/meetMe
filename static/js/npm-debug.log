@@ -1,0 +1,255 @@
+0 info it worked if it ends with ok
+1 verbose cli [ '/usr/bin/nodejs',
+1 verbose cli   '/usr/bin/npm',
+1 verbose cli   'install',
+1 verbose cli   'moment',
+1 verbose cli   'jquery',
+1 verbose cli   'browserify',
+1 verbose cli   'bootstrap',
+1 verbose cli   'bootstap-daterangepicker',
+1 verbose cli   '--save' ]
+2 info using npm@1.3.10
+3 info using node@v0.10.25
+4 warn package.json proj6-Gcal@0.0.0 No README data
+5 verbose readDependencies using package.json deps
+6 verbose cache add [ 'moment', null ]
+7 verbose cache add name=undefined spec="moment" args=["moment",null]
+8 verbose parsed url { protocol: null,
+8 verbose parsed url   slashes: null,
+8 verbose parsed url   auth: null,
+8 verbose parsed url   host: null,
+8 verbose parsed url   port: null,
+8 verbose parsed url   hostname: null,
+8 verbose parsed url   hash: null,
+8 verbose parsed url   search: null,
+8 verbose parsed url   query: null,
+8 verbose parsed url   pathname: 'moment',
+8 verbose parsed url   path: 'moment',
+8 verbose parsed url   href: 'moment' }
+9 verbose cache add [ 'jquery', null ]
+10 verbose cache add name=undefined spec="jquery" args=["jquery",null]
+11 verbose parsed url { protocol: null,
+11 verbose parsed url   slashes: null,
+11 verbose parsed url   auth: null,
+11 verbose parsed url   host: null,
+11 verbose parsed url   port: null,
+11 verbose parsed url   hostname: null,
+11 verbose parsed url   hash: null,
+11 verbose parsed url   search: null,
+11 verbose parsed url   query: null,
+11 verbose parsed url   pathname: 'jquery',
+11 verbose parsed url   path: 'jquery',
+11 verbose parsed url   href: 'jquery' }
+12 verbose cache add [ 'browserify', null ]
+13 verbose cache add name=undefined spec="browserify" args=["browserify",null]
+14 verbose parsed url { protocol: null,
+14 verbose parsed url   slashes: null,
+14 verbose parsed url   auth: null,
+14 verbose parsed url   host: null,
+14 verbose parsed url   port: null,
+14 verbose parsed url   hostname: null,
+14 verbose parsed url   hash: null,
+14 verbose parsed url   search: null,
+14 verbose parsed url   query: null,
+14 verbose parsed url   pathname: 'browserify',
+14 verbose parsed url   path: 'browserify',
+14 verbose parsed url   href: 'browserify' }
+15 verbose cache add [ 'bootstrap', null ]
+16 verbose cache add name=undefined spec="bootstrap" args=["bootstrap",null]
+17 verbose parsed url { protocol: null,
+17 verbose parsed url   slashes: null,
+17 verbose parsed url   auth: null,
+17 verbose parsed url   host: null,
+17 verbose parsed url   port: null,
+17 verbose parsed url   hostname: null,
+17 verbose parsed url   hash: null,
+17 verbose parsed url   search: null,
+17 verbose parsed url   query: null,
+17 verbose parsed url   pathname: 'bootstrap',
+17 verbose parsed url   path: 'bootstrap',
+17 verbose parsed url   href: 'bootstrap' }
+18 verbose cache add [ 'bootstap-daterangepicker', null ]
+19 verbose cache add name=undefined spec="bootstap-daterangepicker" args=["bootstap-daterangepicker",null]
+20 verbose parsed url { protocol: null,
+20 verbose parsed url   slashes: null,
+20 verbose parsed url   auth: null,
+20 verbose parsed url   host: null,
+20 verbose parsed url   port: null,
+20 verbose parsed url   hostname: null,
+20 verbose parsed url   hash: null,
+20 verbose parsed url   search: null,
+20 verbose parsed url   query: null,
+20 verbose parsed url   pathname: 'bootstap-daterangepicker',
+20 verbose parsed url   path: 'bootstap-daterangepicker',
+20 verbose parsed url   href: 'bootstap-daterangepicker' }
+21 silly lockFile b56def36-moment moment
+22 verbose lock moment /home/andrew/.npm/b56def36-moment.lock
+23 silly lockFile 6f2ab963-jquery jquery
+24 verbose lock jquery /home/andrew/.npm/6f2ab963-jquery.lock
+25 silly lockFile 84c1c54e-browserify browserify
+26 verbose lock browserify /home/andrew/.npm/84c1c54e-browserify.lock
+27 silly lockFile 3c71cc99-bootstrap bootstrap
+28 verbose lock bootstrap /home/andrew/.npm/3c71cc99-bootstrap.lock
+29 silly lockFile 5b49da0d-bootstap-daterangepicker bootstap-daterangepicker
+30 verbose lock bootstap-daterangepicker /home/andrew/.npm/5b49da0d-bootstap-daterangepicker.lock
+31 silly lockFile b56def36-moment moment
+32 silly lockFile b56def36-moment moment
+33 silly lockFile 5b49da0d-bootstap-daterangepicker bootstap-daterangepicker
+34 silly lockFile 5b49da0d-bootstap-daterangepicker bootstap-daterangepicker
+35 silly lockFile 6f2ab963-jquery jquery
+36 silly lockFile 6f2ab963-jquery jquery
+37 silly lockFile 84c1c54e-browserify browserify
+38 silly lockFile 84c1c54e-browserify browserify
+39 silly lockFile 3c71cc99-bootstrap bootstrap
+40 silly lockFile 3c71cc99-bootstrap bootstrap
+41 verbose addNamed [ 'moment', '' ]
+42 verbose addNamed [ null, '*' ]
+43 silly lockFile 42aa250a-moment moment@
+44 verbose lock moment@ /home/andrew/.npm/42aa250a-moment.lock
+45 verbose addNamed [ 'bootstap-daterangepicker', '' ]
+46 verbose addNamed [ null, '*' ]
+47 silly lockFile d82d97a8-bootstap-daterangepicker bootstap-daterangepicker@
+48 verbose lock bootstap-daterangepicker@ /home/andrew/.npm/d82d97a8-bootstap-daterangepicker.lock
+49 verbose addNamed [ 'jquery', '' ]
+50 verbose addNamed [ null, '*' ]
+51 silly lockFile 039e748d-jquery jquery@
+52 verbose lock jquery@ /home/andrew/.npm/039e748d-jquery.lock
+53 verbose addNamed [ 'browserify', '' ]
+54 verbose addNamed [ null, '*' ]
+55 silly lockFile 80140245-browserify browserify@
+56 verbose lock browserify@ /home/andrew/.npm/80140245-browserify.lock
+57 verbose addNamed [ 'bootstrap', '' ]
+58 verbose addNamed [ null, '*' ]
+59 silly lockFile 2571d98f-bootstrap bootstrap@
+60 verbose lock bootstrap@ /home/andrew/.npm/2571d98f-bootstrap.lock
+61 silly addNameRange { name: 'moment', range: '*', hasData: false }
+62 silly addNameRange { name: 'jquery', range: '*', hasData: false }
+63 silly addNameRange { name: 'browserify', range: '*', hasData: false }
+64 silly addNameRange { name: 'bootstap-daterangepicker', range: '*', hasData: false }
+65 silly addNameRange { name: 'bootstrap', range: '*', hasData: false }
+66 verbose url raw moment
+67 verbose url resolving [ 'https://registry.npmjs.org/', './moment' ]
+68 verbose url resolved https://registry.npmjs.org/moment
+69 info trying registry request attempt 1 at 10:51:21
+70 http GET https://registry.npmjs.org/moment
+71 verbose url raw jquery
+72 verbose url resolving [ 'https://registry.npmjs.org/', './jquery' ]
+73 verbose url resolved https://registry.npmjs.org/jquery
+74 info trying registry request attempt 1 at 10:51:21
+75 http GET https://registry.npmjs.org/jquery
+76 verbose url raw bootstap-daterangepicker
+77 verbose url resolving [ 'https://registry.npmjs.org/', './bootstap-daterangepicker' ]
+78 verbose url resolved https://registry.npmjs.org/bootstap-daterangepicker
+79 info trying registry request attempt 1 at 10:51:21
+80 http GET https://registry.npmjs.org/bootstap-daterangepicker
+81 verbose url raw bootstrap
+82 verbose url resolving [ 'https://registry.npmjs.org/', './bootstrap' ]
+83 verbose url resolved https://registry.npmjs.org/bootstrap
+84 info trying registry request attempt 1 at 10:51:21
+85 http GET https://registry.npmjs.org/bootstrap
+86 verbose url raw browserify
+87 verbose url resolving [ 'https://registry.npmjs.org/', './browserify' ]
+88 verbose url resolved https://registry.npmjs.org/browserify
+89 info trying registry request attempt 1 at 10:51:22
+90 verbose etag "855DUL2APH9YPRS0OKC7TD8XC"
+91 http GET https://registry.npmjs.org/browserify
+92 http 200 https://registry.npmjs.org/moment
+93 silly registry.get cb [ 200,
+93 silly registry.get   { server: 'CouchDB/1.5.0 (Erlang OTP/R16B03)',
+93 silly registry.get     etag: '"3RFTCDGYL03HLGCVUBS5UP844"',
+93 silly registry.get     'content-type': 'application/json',
+93 silly registry.get     'cache-control': 'max-age=300',
+93 silly registry.get     'content-length': '75022',
+93 silly registry.get     'accept-ranges': 'bytes',
+93 silly registry.get     date: 'Wed, 17 Feb 2016 18:51:22 GMT',
+93 silly registry.get     via: '1.1 varnish',
+93 silly registry.get     age: '183',
+93 silly registry.get     connection: 'keep-alive',
+93 silly registry.get     'x-served-by': 'cache-sjc3129-SJC',
+93 silly registry.get     'x-cache': 'HIT',
+93 silly registry.get     'x-cache-hits': '7',
+93 silly registry.get     'x-timer': 'S1455735082.348591,VS0,VE0',
+93 silly registry.get     vary: 'Accept' } ]
+94 silly addNameRange number 2 { name: 'moment', range: '*', hasData: true }
+95 silly addNameRange versions [ 'moment',
+95 silly addNameRange   [ '1.0.0',
+95 silly addNameRange     '1.0.1',
+95 silly addNameRange     '1.1.0',
+95 silly addNameRange     '1.1.1',
+95 silly addNameRange     '1.2.0',
+95 silly addNameRange     '1.3.0',
+95 silly addNameRange     '1.4.0',
+95 silly addNameRange     '1.5.0',
+95 silly addNameRange     '1.5.1',
+95 silly addNameRange     '1.6.0',
+95 silly addNameRange     '1.6.1',
+95 silly addNameRange     '1.6.2',
+95 silly addNameRange     '1.7.0',
+95 silly addNameRange     '1.7.1',
+95 silly addNameRange     '1.7.2',
+95 silly addNameRange     '2.0.0',
+95 silly addNameRange     '2.1.0',
+95 silly addNameRange     '2.2.1',
+95 silly addNameRange     '2.3.0',
+95 silly addNameRange     '2.3.1',
+95 silly addNameRange     '2.4.0',
+95 silly addNameRange     '2.5.0',
+95 silly addNameRange     '2.5.1',
+95 silly addNameRange     '2.6.0',
+95 silly addNameRange     '2.7.0',
+95 silly addNameRange     '2.8.1',
+95 silly addNameRange     '2.8.2',
+95 silly addNameRange     '2.8.3',
+95 silly addNameRange     '2.8.4',
+95 silly addNameRange     '2.9.0',
+95 silly addNameRange     '2.10.2',
+95 silly addNameRange     '2.10.3',
+95 silly addNameRange     '2.10.5',
+95 silly addNameRange     '2.10.6',
+95 silly addNameRange     '2.11.0',
+95 silly addNameRange     '2.11.1',
+95 silly addNameRange     '2.11.2' ] ]
+96 verbose addNamed [ 'moment', '2.11.2' ]
+97 verbose addNamed [ '2.11.2', '2.11.2' ]
+98 silly lockFile 779a590f-moment-2-11-2 moment@2.11.2
+99 verbose lock moment@2.11.2 /home/andrew/.npm/779a590f-moment-2-11-2.lock
+100 silly lockFile f8dcb7bb-mjs-org-moment-moment-2-11-2-tgz https://registry.npmjs.org/moment/-/moment-2.11.2.tgz
+101 verbose lock https://registry.npmjs.org/moment/-/moment-2.11.2.tgz /home/andrew/.npm/f8dcb7bb-mjs-org-moment-moment-2-11-2-tgz.lock
+102 verbose addRemoteTarball [ 'https://registry.npmjs.org/moment/-/moment-2.11.2.tgz',
+102 verbose addRemoteTarball   '87968e5f95ac038c2e42ac959c75819cd3f52901' ]
+103 info retry fetch attempt 1 at 10:51:22
+104 verbose fetch to= /home/andrew/tmp/npm-3411-rGzOcx22/1455735082148-0.7837069099768996/tmp.tgz
+105 http GET https://registry.npmjs.org/moment/-/moment-2.11.2.tgz
+106 http 404 https://registry.npmjs.org/bootstap-daterangepicker
+107 silly registry.get cb [ 404,
+107 silly registry.get   { 'content-type': 'application/json',
+107 silly registry.get     'cache-control': 'max-age=0',
+107 silly registry.get     'content-length': '2',
+107 silly registry.get     'accept-ranges': 'bytes',
+107 silly registry.get     date: 'Wed, 17 Feb 2016 18:51:22 GMT',
+107 silly registry.get     via: '1.1 varnish',
+107 silly registry.get     age: '0',
+107 silly registry.get     connection: 'keep-alive',
+107 silly registry.get     'x-served-by': 'cache-sjc3650-SJC',
+107 silly registry.get     'x-cache': 'MISS',
+107 silly registry.get     'x-cache-hits': '0',
+107 silly registry.get     'x-timer': 'S1455735082.412156,VS0,VE46' } ]
+108 silly addNameRange number 2 { name: 'bootstap-daterangepicker', range: '*', hasData: true }
+109 silly addNameRange versions [ undefined, [] ]
+110 error TypeError: Cannot read property 'latest' of undefined
+110 error     at next (/usr/share/npm/lib/cache.js:687:35)
+110 error     at /usr/share/npm/lib/cache.js:675:5
+110 error     at saved (/usr/share/npm/node_modules/npm-registry-client/lib/get.js:142:7)
+110 error     at /usr/lib/nodejs/graceful-fs/polyfills.js:133:7
+110 error     at Object.oncomplete (fs.js:107:15)
+111 error If you need help, you may report this log at:
+111 error     <http://github.com/isaacs/npm/issues>
+111 error or email it to:
+111 error     <npm-@googlegroups.com>
+112 error System Linux 3.16.0-60-generic
+113 error command "/usr/bin/nodejs" "/usr/bin/npm" "install" "moment" "jquery" "browserify" "bootstrap" "bootstap-daterangepicker" "--save"
+114 error cwd /home/andrew/Documents/uoregon-cis399/project6/proj6-Gcal/static/js
+115 error node -v v0.10.25
+116 error npm -v 1.3.10
+117 error type non_object_property_load
+118 verbose exit [ 1, true ]

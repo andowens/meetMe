@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+        <link rel="stylesheet" type="text/css" href="../static/css/index.css">
+
+    <link rel="stylesheet" type="text/css"
+         href="//cdn.jsdelivr.net/bootstrap/latest/css/bootstrap.css"
+    />
+
+
+    <link rel="stylesheet" type="text/css"
+         href="//cdn.jsdelivr.net/bootstrap/latest/css/bootstrap.css"
+    />
+
+    <link rel="stylesheet" type="text/css"
+        href="../static/css/busy.css"
+    />
+
+    <!-- jquery from a content distribution network; probably cached -->
+    <script type="text/javascript"
+         src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js">
+    </script>
+
+    <script type="text/javascript" src="//cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
+    <script type="text/javascript" src="//cdn.jsdelivr.net/bootstrap.daterangepicker/2/daterangepicker.js"></script>
+    <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/bootstrap.daterangepicker/2/daterangepicker.css" />
+
+    <link type="text/css" href="static/js/node_modules/bootstrap-timepicker/css/bootstrap-timepicker.min.css" />
+    <script type="text/javascript" src="static/js/node_modules/bootstrap-timepicker/js/bootstrap-timepicker.min.js"></script>
+
+    <!-- The rest of our javascript dependencies are bundled and -->
+    <!-- 'minified' by 'browserify'  -->
+    <script type="text/javascript"
+       src="../static/js/busy.min.js">
+    </script>
+    <title>Create Meeting</title>
+</head>
+<body>
+<div class="container">
+
+    <div class="page-header">
+        <h1 class="text-center">Create a Meeting</h1>
+    </div>
+    <!--
+      -- If there are any warnings or other messages from a prior action,
+      -- they appear above the rest of the content, just until the next
+      -- action.
+      -->
+
+    {% with messages = get_flashed_messages() %}
+      {% if messages %}
+        <ul class=flashes>
+        {% for message in messages %}
+          <li>{{ message }}</li>
+        {% endfor %}
+        </ul>
+      {% endif %}
+    {% endwith %}
+
+    <form action="/setrange" method="post">
+        <div class="row ">
+            <div class="col-md-2">
+                <label for="about">About:</label>
+            </div>
+            <div class="col-md-8">
+                <input type="text" name="about" id="about" placeholder="What is the meeting about..." size="50%">
+            </div>
+        </div>
+        <div class="row top-buffer">
+            <div class="col-md-2">
+                <label for="place">Place:</label>
+            </div>
+            <div class="col-md-8">
+                <input type="text" name="place" id="place" placeholder="Where is the meeting happening..." size="50%">
+            </div>
+        </div>
+        <div class="row top-buffer">
+            <div class="col-md-2">
+                <label for="daterange">Date:</label>
+            </div>
+            <div class="col-md-8">
+                <input type="text" name="daterange" id="daterange"
+                    {% if session.daterange is defined %}
+                       value="{{session.daterange}}"
+                    {% endif %}
+                    class="pull-down"
+                    style="background: #fff; cursor: pointer; padding: 5px;
+                    border: 1px solid #ccc;" size="50%">
+                    <script type="text/javascript">
+                        $(function() {
+                            $('input[name="daterange"]').daterangepicker(
+                                {    ranges: {
+                                'Today': [moment(), moment()],
+                                'Tomorrow':[moment().add(1, 'days'),
+                                     moment().add(1, 'days')],
+                                'This week':[moment(), moment().endOf('week')],
+                                'Next week':[moment().add(7, 'days').startOf('week'),
+                                     moment().add(7, 'days').endOf('week')],
+                                'This month':[moment(), moment().endOf('month')],
+                                'Within two weeks':[moment(),moment().add(15, 'days')]
+                                 }}
+                            );
+                        });
+                    </script>
+                </div>
+        </div>
+        <div class="row top-buffer">
+            <div class="col-md-2">
+                <label for="timepicker1">Time:</label>
+            </div>
+            <div class="col-md-2">
+                <!-- Time range picker for start time -->
+                <div class="input-group bootstrap-timepicker timepicker">
+                    <input id="timepicker1" type="text" name="start" class="form-control input-small"
+                    {% if session.pick_start is defined %}
+                         value="{{session.pick_start}}"
+                    {% endif %}>
+                </div>
+                 <script type="text/javascript">
+                        $('#timepicker1').timepicker();
+                </script>
+            </div>
+            <div class="col-md-1 text-center">
+                <label for="timepicker2">to</label>
+            </div>
+            <div class="col-md-2">
+                <!-- Time range picker for end time -->
+                <div class="input-group bootstrap-timepicker timepicker">
+                    <input id="timepicker2" type="text" name="end" class="form-control input-small"
+                    {% if session.pick_final is defined %}
+                         value="{{session.pick_final}}"
+                    {% endif %}>
+                </div>
+                 <script type="text/javascript">
+                        $('#timepicker2').timepicker();
+                </script>
+            </div>
+        </div>
+    <br /><input type="submit" value="Get Calenders" />
+</form>
+        <!--
+        Show the calendar list (if we have it).  This will need to be turned into
+        a form from which calendars can be picked.
+        -->
+    {% if session.calendars is defined  %}
+        <div class="row top-buffer">
+            <div class="page-header">
+                <h1 class="text-center">Calenders</h1>
+            </div>
+        </div>
+            {% for cal in session.calendars if cal.selected %}
+                <div class="row top-buffer text-center">
+                    <input type="checkbox" id="{{ cal.id }}" ><span class="custom-size"> {{ cal.summary }}</span>
+                </div>
+            {% endfor %}
+
+        <button type="submit" id="create" class="top-buffer">Create Meeting</button>
+
+    {% endif %}
+
+    <!-- Start the javascript -->
+    <script>
+        $SCRIPT_ROOT = {{ request.script_root|tojson|safe }};
+
+
+        //When the user clicks Use Calendars button
+        //Go through selected calendars and add there ids to a list so
+        //so we can find them in the list server side.
+        $("button[id$='create']").click(function() {
+
+            var cals = "";
+             //for all checked boxes
+            $('input[type=checkbox]').each(function() {
+                //if current box is checked add the memo id to a list of memo ids
+                if(this.checked){
+                    console.log(this.id);
+                    cals = cals + " " + this.id;
+                }
+             });
+
+            $.ajax({
+                url: $SCRIPT_ROOT + '/conflicts',
+                dataType: "json",
+                data: { cals: cals },
+                complete: function() {
+                    location.assign($SCRIPT_ROOT + "/busy");
+                }
+            });//end ajax
+
+         }); //end submit onClick
+
+    </script>
+
+
+</div>  <!-- container (for bootstrap) -->
+
+</body>
+</html>

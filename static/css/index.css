@@ -1,0 +1,26 @@
+/*
+ *
+ */
+ .text-center {
+  text-align: center;
+}
+
+ h1 {
+    font-size: 500%
+ }
+
+ hr {
+    width: 50%;
+ }
+
+ .custom-size {
+    font-size: 200%;
+}
+
+.top-buffer {
+    margin-top:20px;
+}
+
+.resizedTextbox {
+    height: 40px
+ }
