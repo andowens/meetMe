@@ -281,7 +281,7 @@ def init_session_values():
     flask.session["begin_time"] = interpret_time("9am")
     flask.session["end_time"] = interpret_time("5pm")
 
-    #get a little meeting information so the user can see proposed meetings and delete them
+    #get a little meeting information so the user can see proposed meetings
     meetings = []
     for meeting in collection.find( { "type": "meeting" }):
         meetings.append({
@@ -531,11 +531,10 @@ def remove_memos(meetings):
     """
     #Split it up so we can search for multiple _ids
     ids = meetings.split(" ")
-    for entry in collection.find():
-        #Now delete if we find it
-        if str(entry["_id"]) in ids:
-            app.logger.debug("Hello from delete")
-            collection.remove(entry)
+    for id in ids:
+        if id == '':
+            continue
+        collection.delete_one({'_id': ObjectId(id)})
     return
 
 def fold_times(free, events):
